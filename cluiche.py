@@ -17,7 +17,7 @@ tomhais_iomlan = 6
 # 8. print amach tomhais_iomlan - tomhais_togtha = céim hangman
 #
 
-focail = ["úlla", "mucín", "séabra", "focal", "bó"]
+focail = ["úlla", "mucín", "séabra", "focal", "bó", "nóinín", "pabhsaer", "cnaipíní", "sicín"]
 
 
 def faigh_focal() -> str:
