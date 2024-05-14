@@ -6,7 +6,7 @@ tomhais_iomlan = 6
 # cuirfimid na feidhmeanna don chluiche anseo
 # # 1. cuir fáilte rompu, tóg a ainm
 # # 2. ríomhaire ag piocadh focal (plainéad) [p,l,a,i,n,é,a,d]
-# 3. tóg focal ón imreoir (capalíní) [c,a,p,a,l,í,n,í]
+# # 3. tóg focal ón imreoir (capalíní) [c,a,p,a,l,í,n,í]
 # 3+.déan scrúdú ar an bhfocal roghnaithe
 # 4. déan comparáid leis an focal atá roghnaithe ag an gcluiche
 # 5. _ _ _ _ _ _ _ _ ->
@@ -46,9 +46,26 @@ def comparaid(tomhas: str, focal: str):
     print(f"do thomhas: {tomhas}")
     litreacha_tomhas = list(tomhas)
     litreacha_focal = list(focal)
-    for rud in [True, False, True, True, "boo!"]:
-        print(rud)
-
+    comhar_ceart = 0
+    eolas = ""
+    # do gach litir sa bhfocal tomhas, abair leis an úsadóir an raibh sé ceart/micheart/san áit micheart
+    for rud in litreacha_tomhas:
+        try:
+            ait = litreacha_focal.index(rud)
+        except:
+            ait = -1
+        tomhas_ait = litreacha_tomhas.index(rud)
+        if (ait < 0):
+            eolas = eolas +"*"
+        elif (ait == tomhas_ait):
+            eolas = eolas +rud
+            comhar_ceart += 1
+        elif (ait != tomhas_ait):
+            eolas = eolas +rud.upper()
+    print(eolas)
+    if (len(focal) == comhar_ceart):
+        return True
+    return False
 
 def faigh_tomhas(focal_roghnaithe: str) -> str:
     focal = focal_roghnaithe
