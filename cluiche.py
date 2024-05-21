@@ -29,13 +29,17 @@ def faigh_focal() -> str:
 
 def imir(focal: str):
     tomhas = faigh_tomhas(focal)
-    comhar = 1
+    comhar = 0
     ceart = False
-    while (not ceart and comhar <= tomhais_iomlan):
+    tomhais_fagtha = tomhais_iomlan - comhar
+    print(uirlisi.taispean_crochadoir(tomhais_fagtha))
+    while not ceart and comhar < tomhais_iomlan:
         ceart = comparaid(tomhas, focal)
         if (ceart):
             print("Maith thú!")
         else:
+            tomhais_fagtha = tomhais_iomlan - comhar
+            print(uirlisi.taispean_crochadoir(tomhais_fagtha))
             comhar = comhar + 1
             tomhas = faigh_tomhas(focal)
     if (not ceart):
